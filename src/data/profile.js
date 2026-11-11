@@ -1,27 +1,24 @@
-// Edite este arquivo para personalizar o seu DevLinks.
-// Para usar sua foto, coloque a imagem em /public (ex.: /public/avatar.jpg) e troque o caminho abaixo.
-
+// Dados do perfil, links principais e redes sociais.
 export const profile = {
-  username: '@eduardo.figueiredo',
-  avatar: '/EduardoSoaresFigueiredo.jpeg',
-  avatarAlt: 'Foto de perfil',
+  username: '@sammysantarosa',
+  avatar: '/Samy.jpg',
+  avatarAlt: 'Foto de perfil de Samy',
 }
 
 export const links = [
-  { id: 'curso-inscricao', label: 'Inscreva-se no meu Curso', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
-  { id: 'ebook', label: 'Baixe meu e-book', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
-  { id: 'portfolio', label: 'Veja meu portfólio', href: 'https://portifolioeduardofigueiredo.netlify.app/' },
-  { id: 'curso', label: 'Conheça meu curso', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
+  { id: 'github', label: 'GitHub', href: 'https://github.com/SammySantaRosa24' },
+  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/samy-ferreira-santa-rosa-539b332b5/' },
+  { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/sammysantarosa/' },
+  { id: 'whatsapp', label: 'WhatsApp', href: 'https://wa.me/5511985927836' },
 ]
 
-// "network" precisa existir em src/components/SocialIcon.jsx
 export const socials = [
-  { network: 'github', label: 'GitHub', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
-  { network: 'instagram', label: 'Instagram', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
-  { network: 'youtube', label: 'YouTube', href: 'https://github.com/EduardoFigueiredo05/devLinks' },
-  { network: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/eduardo-soares-figueiredo/' },
+  { network: 'github', label: 'GitHub', href: 'https://github.com/SammySantaRosa24' },
+  { network: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/sammysantarosa/' },
+  { network: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/samy-ferreira-santa-rosa-539b332b5/' },
+  { network: 'whatsapp', label: 'WhatsApp', href: 'https://wa.me/5511985927836' },
 ]
 
 export const footer = {
-  author: 'Eduardo Figueiredo',
+  author: 'Samy',
 }

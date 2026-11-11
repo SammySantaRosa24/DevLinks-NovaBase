@@ -9,7 +9,7 @@ const paths = {
 }
 
 /**
- * @param {{ network: 'github' | 'instagram' | 'youtube' | 'linkedin', className?: string }} props
+ * @param {{ network: 'github' | 'instagram' | 'youtube' | 'linkedin' | 'whatsapp', className?: string }} props
  */
 export default function SocialIcon({ network, className = 'h-6 w-6' }) {
   if (network === 'instagram') {
@@ -18,6 +18,15 @@ export default function SocialIcon({ network, className = 'h-6 w-6' }) {
         <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
         <circle cx="12" cy="12" r="4.2" />
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    )
+  }
+
+  if (network === 'whatsapp') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+        <path d="M20.1 11.5a8.1 8.1 0 0 1-11.97 7.12L3 20l1.4-4.84A8.1 8.1 0 1 1 20.1 11.5Z" />
+        <path d="M8.4 7.8c.16-.36.33-.37.56-.38h.47c.15 0 .36.06.45.31l.66 1.57c.07.18.05.35-.07.51l-.47.59c-.12.15-.25.28-.11.54.15.25.66 1.08 1.43 1.75.98.86 1.8 1.12 2.07 1.24.25.12.4.1.55-.08l.73-.85c.18-.2.34-.25.56-.15l1.48.7c.22.1.36.15.4.24.06.1.06.54-.12 1.06-.17.5-.98 1-1.36 1.03-.38.04-.38.33-2.4-.5-2.04-.83-3.32-2.9-3.42-3.04-.1-.13-.78-1.03-.78-1.97 0-.93.49-1.4.66-1.6Z" fill="currentColor" stroke="none" />
       </svg>
     )
   }

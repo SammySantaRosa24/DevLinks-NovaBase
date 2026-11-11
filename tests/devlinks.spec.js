@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
+import { footer, links as profileLinks, profile, socials } from '../src/data/profile.js'
 
 const STORAGE_KEY = 'devlinks:theme'
 
@@ -6,25 +7,36 @@ test.describe('DevLinks', () => {
   test('renderiza perfil, links, redes sociais e rodapé', async ({ page }) => {
     await page.goto('/')
 
-    await expect(page.getByRole('img', { name: 'Foto de perfil' })).toBeVisible()
-    await expect(page.getByTestId('username')).toHaveText('@seu.perfil')
+    await expect(page.getByRole('img', { name: profile.avatarAlt })).toBeVisible()
+    await expect(page.getByTestId('username')).toHaveText(profile.username)
 
     const links = page.getByRole('navigation', { name: 'Links principais' }).getByRole('link')
-    await expect(links).toHaveCount(4)
-    await expect(links.first()).toHaveText('Inscreva-se no meu Curso')
+    await expect(links).toHaveCount(profileLinks.length)
 
-    for (const name of ['GitHub', 'Instagram', 'YouTube', 'LinkedIn']) {
-      await expect(page.getByRole('link', { name })).toBeVisible()
+    for (const [index, link] of profileLinks.entries()) {
+      await expect(links.nth(index)).toHaveText(link.label)
+      await expect(links.nth(index)).toHaveAttribute('href', link.href)
     }
 
-    await expect(page.locator('footer')).toContainText('Feito com')
+    const socialGroup = page.getByRole('list', { name: 'Redes sociais' })
+    for (const social of socials) {
+      const socialLink = socialGroup.getByRole('link', { name: social.label })
+      await expect(socialLink).toBeVisible()
+      await expect(socialLink).toHaveAttribute('href', social.href)
+    }
+
+    await expect(page.locator('footer')).toContainText(footer.author)
   })
 
   test('links externos abrem em nova aba com segurança', async ({ page }) => {
     await page.goto('/')
-    const link = page.getByRole('link', { name: 'Baixe meu e-book' })
+    const link = page
+      .getByRole('navigation', { name: 'Links principais' })
+      .getByRole('link', { name: profileLinks[1].label })
+
+    await expect(link).toHaveAttribute('href', profileLinks[1].href)
     await expect(link).toHaveAttribute('target', '_blank')
-    await expect(link).toHaveAttribute('rel', /noopener/)
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   })
 
   test('usa o tema escuro quando o sistema prefere escuro', async ({ page }) => {
